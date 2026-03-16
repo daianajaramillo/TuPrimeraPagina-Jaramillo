@@ -1,0 +1,9 @@
+{% extends "mi_app/base.html" %}
+{% block content %}
+    <h2>Crear Nueva Reserva</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ mi_form.as_p }}
+        <button type="submit">Confirmar Reserva</button>
+    </form>
+{% endblock %}

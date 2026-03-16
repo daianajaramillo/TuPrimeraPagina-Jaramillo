@@ -1,0 +1,19 @@
+{% extends "mi_app/base.html" %}
+
+{% block title %}Inicio - Sitio de alojamientos temporarios{% endblock %}
+
+{% block content %}
+    <h2>Bienvenido a la app de alojamientos</h2>
+    <p>Estos son los últimos alojamientos vistos:</p>
+    
+    <ul>
+        {% for alojamiento in alojamientos %}
+            <li>
+                <strong>{{ alojamiento.nombre }}</strong> - 
+                {{ alojamiento.ciudad }}
+            </li>
+        {% empty %}
+            <li>Aún no hay alojamientos cargados. <a href="{% url 'form_alojamiento' %}"></a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

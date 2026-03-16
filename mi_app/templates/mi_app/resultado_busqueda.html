@@ -1,0 +1,21 @@
+{% extends "mi_app/base.html" %}
+
+{% block content %}
+    <h2>Resultados para: "{{ ciudad }}"</h2>
+
+    {% if alojamientos %}
+        <ul>
+            {% for aloj in alojamientos %}
+                <li>
+                    <strong>{{ aloj.nombre }}</strong> - 
+                    Precio: ${{ aloj.precio_por_noche }} 
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p style="color: red;">No se encontraron alojamientos en esa ciudad.</p>
+    {% endif %}
+
+    <hr>
+    <a href="{% url 'buscar_alojamiento' %}">Realizar otra búsqueda</a>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "mi_app/base.html" %}
+
+{% block content %}
+    <h1>Cargar Nuevo Alojamiento</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ mi_form.as_p }}
+        <button type="submit">Guardar Alojamiento</button>
+    </form>
+{% endblock %}

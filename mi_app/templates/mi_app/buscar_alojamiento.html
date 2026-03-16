@@ -1,0 +1,28 @@
+{% extends "mi_app/base.html" %}
+
+{% block content %}
+    <h1>Buscar Alojamiento por Ciudad</h1>
+
+    <form action="{% url 'buscar_alojamiento' %}" method="GET">
+        <input type="text" name="ciudad" placeholder="Ej: Buenos Aires">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <hr>
+
+    {% if busqueda_realizada %}
+        {% if alojamientos %}
+            <h3>Resultados para "{{ ciudad }}":</h3>
+            <ul>
+                {% for aloj in alojamientos %}
+                    <li><strong>{{ aloj.nombre }}</strong> - Ubicación: {{ aloj.ciudad }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No se encontraron alojamientos en <strong>{{ ciudad }}</strong>. Intenta con otra ciudad.</p>
+        {% endif %}
+    {% endif %}
+
+    <br>
+    <a href="{% url 'inicio' %}">Volver al inicio</a>
+{% endblock %}
